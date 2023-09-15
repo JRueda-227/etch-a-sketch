@@ -1,0 +1,10 @@
+.gridColumn {
+    border: 1px solid black;
+    min-width: 20px;
+    min-height: 20px;
+}
+
+.gridRow {
+    min-height: 20px;
+    display: flex;
+}
