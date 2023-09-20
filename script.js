@@ -17,8 +17,8 @@ function askGridSize() {
 }
 
 function makeGrid() {
-    let square = board.querySelectorAll('div');
-    square.forEach((div) => div.remove())
+    let squares = board.querySelectorAll('div');
+    squares.forEach((div) => div.remove())
     makeRows(n);
     makeColumns(n);
 }
