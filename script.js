@@ -1,15 +1,24 @@
 const board = document.querySelector('#board');
 let rows = document.getElementsByClassName('gridRow');
 let columns = document.getElementsByClassName('gridColumn');
-const button = document.querySelector('#gridSize')
+const button = document.querySelector('#gridSize');
 let n;
 
 button.addEventListener('click', () => {
-    n = prompt()
+    askGridSize();
     makeGrid();
 })
 
+function askGridSize() {
+    do {
+        n = prompt();
+
+    } while(n > 32)
+}
+
 function makeGrid() {
+    let square = board.querySelectorAll('div');
+    square.forEach((div) => div.remove())
     makeRows(n);
     makeColumns(n);
 }
@@ -26,7 +35,7 @@ function makeColumns(numColumns) {
         for (let j = 0; j < numColumns; j++) {
             let column = document.createElement('div');
             rows[j].appendChild(column).className = 'gridColumn';
-            column.addEventListener('mousemove', () => {
+            column.addEventListener('mouseover', () => {
                 column.style.backgroundColor = random_bg_color();
             })
         }
@@ -40,4 +49,4 @@ function random_bg_color() {
     let bgColor = "rgb(" + x + "," + y + "," + z + ")";
   
     return bgColor;
-    }
+}
